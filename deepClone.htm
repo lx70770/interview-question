@@ -13,9 +13,10 @@
         return obj;
       }
 
-      let newObj = {}
+      let newObj = {};
       for (let item in obj) {
-        
+        newObj[item] =
+          typeof obj[item] === "object" ? deepClone(obj[item]) : obj[item];
       }
     }
 

@@ -19,7 +19,7 @@
           i == 999 && resolve();
         }
         console.log("第1个resolve结束");
-        resolve();
+        resolve(); // resolve后面的代码还是会执行， then接收第一个resolve的参数， 后面的resolve会被忽略
         console.log("第二个resolve结束");
       }).then(() => {
         console.log("then执行");
