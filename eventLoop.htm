@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 1
+    function eventLoop() {
+      setTimeout(() => {
+        console.log("setTimeout start");
+      });
+
+      new Promise(resolve => {
+        for (let i = 0; i < 1000; i++) {
+          i == 999 && resolve();
+        }
+        console.log("第1个resolve结束");
+        resolve();
+        console.log("第二个resolve结束");
+      }).then(() => {
+        console.log("then执行");
+      });
+    }
+    eventLoop();
+
+    // 2
+    console.time("start");
+
+    setTimeout(function() {
+      console.log(2);
+    }, 10);
+
+    new Promise(function(resolve) {
+      console.log(3);
+      resolve();
+      console.log(4);
+    }).then(function() {
+      console.log(5);
+      console.timeEnd("start");
+    });
+    console.log(6);
+    console.log(8);
+    requestAnimationFrame(() => console.log(9)); // 16ms 一个周期
+  </script>
+</html>

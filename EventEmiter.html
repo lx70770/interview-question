@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EventEmiter</title>
+  </head>
+  <body></body>
+  <script>
+    // NodeJS 自定义事件  属于观察者模式
+    class EventEmiter {
+      constructor() {
+        this.messageBox = {};
+      }
+
+      on(eventName, fn) {
+        const callbacks = this.messageBox[eventName] || [];
+        callbacks.push(fn);
+        this.messageBox[eventName] = callbacks;
+      }
+
+      emit(eventName, ...args) {
+        const callbacks = this.messageBox[eventName];
+        if (callbacks && callbacks.length > 0) {
+          callbacks.forEach(callback => {
+            callback(...args);
+          });
+        }
+      }
+
+      off(eventName, fn) {
+        const callbacks = this.messageBox[eventName];
+        if (fn) {
+          callbacks.splice(fn, 1);
+        } else {
+          delete this.messageBox[eventName];
+        }
+      }
+    }
+
+    const fn1 = name => console.log(`我爱${name}`);
+    const fn2 = name => console.log(`我不爱${name}`);
+
+    const emitter = new EventEmiter();
+    emitter.on("love", fn1);
+    emitter.on("don't love", fn2);
+
+    emitter.emit("love", "林志玲");
+    emitter.emit("don't love", "王思聪");
+
+    emitter.off("love");
+
+    emitter.emit("love", "林志玲");
+    emitter.emit("don't love", "王思聪");
+  </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择排序</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    * 自己理解的是：
+    * 在未排序的数组中找到最小的数字   然后将这个数字放到已排序的最后   直到排序完毕
+    * */
+    const selectSort = function (arr) {
+        if (Array.isArray(arr) && arr.length > 0) {
+            let len = arr.length
+            let minIndex, temp
+            for (let i = 0; i < len - 1; i++) {
+                minIndex = i
+                for (let j = i + 1; j < len; j++) {
+                    if (arr[j] < arr[minIndex]) {
+                        minIndex = j
+                    }
+                }
+                temp = arr[i]
+                arr[i] = arr[minIndex]
+                arr[minIndex] = temp
+            }
+            return arr
+        }
+        return arr
+    }
+
+    console.log(selectSort([2, 1, 12, 3, 56, 123, 4, 11, 8]))
+</script>
+</html>

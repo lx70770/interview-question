@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 在传入的上下文中添加函数执行
+    Function.prototype.myCall = function(context) {
+      context = context || window;
+      let agrs = [...arguments].slice(1);
+      context.fn = this;
+      context.fn(...agrs);
+      delete context.fn;
+    };
+
+    const obj = {
+      name: "aaa",
+      say: function(value1, value2) {
+        console.log(
+          "name--" + this.name,
+          "value1--" + value1,
+          "value2--" + value2
+        );
+      }
+    };
+
+    const obj2 = {
+      name: "bbb"
+    };
+
+    obj.say.myCall(obj2, "ccc", "ddd");
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // es5实现
+    function curry() {
+      let args = Array.prototype.slice.call(arguments);
+      let fn = function() {
+        let newArgs = args.concat(Array.prototype.slice.call(arguments));
+        return curry.apply(this, newArgs);
+      };
+      fn.toString = function() {
+        return args.reduce(function(a, b) {
+          return a * b;
+        });
+      };
+      return fn;
+    }
+
+    function multiFn(a, b, c) {
+      return a * b * c;
+    }
+    let multi = curry(multiFn);
+
+    console.log(multi(2)(3)(4));
+    console.log(multi(2, 3, 4));
+    console.log(multi(2)(3, 4));
+  </script>
+</html>

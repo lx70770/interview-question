@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lesson1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const sd = (str) => {
+        let arr = str.split(' ')
+        let result = arr.map(item => {
+            return item.split('').reverse().join('')
+        })
+        return result.join(' ').toString()
+    }
+
+    console.log(sd('This is a nice girl\'s day'))
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>广度优先遍历</title>
+  </head>
+  <body></body>
+  <script>
+    // 用队列
+    function BFS(node) {
+      let result = [];
+      let queue = [];
+      if (node) {
+        queue.push(node);
+      }
+      while (queue.length > 0) {
+        let current = queue.shift();
+        result.push(current.value);
+        if (current.left) queue.push(current.left);
+        if (current.right) queue.push(current.right);
+      }
+      return result;
+    }
+  </script>
+</html>

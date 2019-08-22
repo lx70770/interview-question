@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 先序遍历
+    let preOder = function(node) {
+      if (node) {
+        console.log(node.val);
+        preOder(node.left);
+        preOder(node.right);
+      }
+    };
+    // 中序遍历
+    let inOder = function(node) {
+      if (node) {
+        preOder(node.left);
+        console.log(node.val);
+        preOder(node.right);
+      }
+    };
+    // 后序遍历
+    let postOder = function(node) {
+      if (node) {
+        preOder(node.left);
+        preOder(node.right);
+        console.log(node.val);
+      }
+    };
+    // 非递归BFS
+
+    function BFS_1(root) {
+      let queue = [];
+      let result = [];
+
+      if (root !== null) {
+        queue.push(root);
+      }
+
+      while (queue.length > 0) {
+        let current = queue.shift();
+        result.push(current.value);
+        current.left && queue.qush(current.left);
+        current.right && queue.qush(current.right);
+      }
+      return result;
+    }
+  </script>
+</html>

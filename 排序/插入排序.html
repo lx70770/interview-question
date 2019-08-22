@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>插入排序</title>
+  </head>
+  <body></body>
+  <script>
+    const insertionSort = arr => {
+      if (Array.isArray(arr) && arr.length > 0) {
+        let len = arr.length;
+        for (let i = 1; i < len; i++) {
+          let current = arr[i];
+          let preIndex = i - 1;
+          while (preIndex >= 0 && current < arr[preIndex]) {
+            arr[preIndex + 1] = arr[preIndex];
+            preIndex--;
+          }
+          arr[preIndex + 1] = current;
+        }
+        return arr;
+      }
+    };
+
+    console.log(insertionSort([2, 1, 12, 3, 56, 123, 4, 11, 8]));
+  </script>
+</html>

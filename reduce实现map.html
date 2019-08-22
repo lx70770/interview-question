@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>reduce实现map</title>
+  </head>
+  <body></body>
+  <script>
+    Array.prototype.myMap = function(fn, callbackThis) {
+      let res = [];
+      let self = callbackThis || window;
+      this.reduce((prev, next, index, arr) => {
+        res.push(fn.apply(self, [next, index, arr]));
+      }, []);
+      return res;
+    };
+
+    console.log(
+      [1, 2, 3].myMap(function(item, index, arr) {
+        console.log(item, index, arr);
+        return item ** 2;
+      })
+    );
+  </script>
+</html>

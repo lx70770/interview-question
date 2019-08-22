@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    Function.prototype.mybind = function(context = window) {
+      let self = this;
+      let arg = [...arguments].slice(1);
+      return function() {
+        let newArgs = [...arguments];
+        return self.apply(context, arg.concat(newArgs));
+      };
+    };
+
+    var a = "a1";
+
+    var obj = {
+      a: "a2"
+    };
+
+    function alertName(b, c, d) {
+      console.log(this.a, b, c, d);
+    }
+
+    alertName();
+
+    let fn = alertName.mybind(obj, "333");
+    fn("111", "222");
+  </script>
+</html>
