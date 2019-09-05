@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+
+    const toThousandsString = (number) => {
+      const splitNumber = number.toString().split('.')
+      let integer = splitNumber[0]
+      const decimal = splitNumber[1] || ''
+
+      let result = ''
+      while (integer.length > 3) {
+    	console.log(integer)
+        result = ',' + integer.slice(-3) + result
+        integer = integer.slice(0, integer.length - 3)
+      }
+      if (integer) {
+        result = integer + result
+      }
+
+      if (decimal === '') {
+        return result
+      }
+
+      return result + '.' + decimal
+    }
+
+    toThousandsString(1234335678.98)
+  </script>
+</html>
