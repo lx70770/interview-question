@@ -2,7 +2,7 @@
 
 ---
 
-`相较于之前的Context API，老的Context中，由上而下的’触发更新‘很有可能呗中间某个组件的shouldComponentUpdate打断，导致某个子组件不会更新`
+`相较于之前的Context API，老的Context中，由上而下的’触发更新‘很有可能被中间某个组件的shouldComponentUpdate打断，导致某个子组件不会更新`
 
 #### 新版 React.createContext 如何解决旧版 API 的问题呢？
 
