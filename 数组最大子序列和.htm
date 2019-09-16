@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // O(n^2)
+    function maxSubArray(arr) {
+      if (Array.isArray(arr) && arr.length > 0) {
+        let max = arr[0];
+        let length = arr.length;
+        for (let i = 0; i < length; i++) {
+          let sum = 0;
+          for (let j = i; j < length; j++) {
+            sum += arr[j];
+            if (sum > max) {
+              max = sum;
+            }
+          }
+        }
+        return sum;
+      }
+      return 0;
+    }
+
+    // O(n)  动态规划
+    function maxSubArray(arr) {
+      if (Array.isArray(arr) && arr.length > 0) {
+        let max = arr[0];
+        let sum = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+          sum = sum > 0 ? sum + arr[i] : sum[i];
+          if (sum > max) {
+            max = sum;
+          }
+        }
+        return max;
+      }
+    }
+  </script>
+</html>

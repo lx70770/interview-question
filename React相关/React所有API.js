@@ -68,15 +68,16 @@ const React = {
     only
   },
 
-  createRef,
+  createRef, // √
   Component,
   PureComponent,
 
-  createContext,
+  createContext, // √
   forwardRef,
   lazy,
   memo,
 
+  // hooks
   useCallback,
   useContext,
   useEffect,
