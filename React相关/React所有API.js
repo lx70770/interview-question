@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-26 14:37:41
+ * @LastEditTime: 2019-08-26 14:37:41
+ * @LastEditors: your name
+ */
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -61,11 +68,11 @@ import {
 } from "shared/ReactFeatureFlags";
 const React = {
   Children: {
-    map,
-    forEach,
-    count,
-    toArray,
-    only
+    map, // 子元素需要返回大于一个才可以使用
+    forEach, // 子元素需要返回大于一个才可以使用
+    count, // 计算有多少个子元素
+    toArray, // 转化子元素为一个数组
+    only // 强制只有一个子元素
   },
 
   createRef, // √
@@ -73,7 +80,7 @@ const React = {
   PureComponent,
 
   createContext, // √
-  forwardRef,
+  forwardRef, // √
   lazy,
   memo,
 
