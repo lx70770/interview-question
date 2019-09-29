@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 14:37:41
- * @LastEditTime: 2019-08-26 14:37:41
- * @LastEditors: your name
+ * @LastEditTime: 2019-09-29 14:54:54
+ * @LastEditors: Please set LastEditors
  */
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -81,7 +81,7 @@ const React = {
 
   createContext, // √
   forwardRef, // √
-  lazy,
+  lazy, // √
   memo,
 
   // hooks
