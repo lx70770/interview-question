@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 14:37:41
- * @LastEditTime: 2019-09-29 14:54:54
+ * @LastEditTime: 2019-09-29 16:54:56
  * @LastEditors: Please set LastEditors
  */
 /**
@@ -82,7 +82,7 @@ const React = {
   createContext, // √
   forwardRef, // √
   lazy, // √
-  memo,
+  memo, // √
 
   // hooks
   useCallback,
