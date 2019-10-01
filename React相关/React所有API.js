@@ -97,9 +97,9 @@ const React = {
   useState,
 
   Fragment: REACT_FRAGMENT_TYPE,
-  Profiler: REACT_PROFILER_TYPE,
+  Profiler: REACT_PROFILER_TYPE, // 升级版React dev tool
   StrictMode: REACT_STRICT_MODE_TYPE,
-  Suspense: REACT_SUSPENSE_TYPE,
+  Suspense: REACT_SUSPENSE_TYPE, // √
   unstable_SuspenseList: REACT_SUSPENSE_LIST_TYPE,
 
   createElement: __DEV__ ? createElementWithValidation : createElement,
