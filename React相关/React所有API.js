@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 14:37:41
- * @LastEditTime: 2019-09-29 16:54:56
+ * @LastEditTime: 2019-10-01 21:39:15
  * @LastEditors: Please set LastEditors
  */
 /**
@@ -96,9 +96,9 @@ const React = {
   useRef,
   useState,
 
-  Fragment: REACT_FRAGMENT_TYPE,
+  Fragment: REACT_FRAGMENT_TYPE, // √
   Profiler: REACT_PROFILER_TYPE, // 升级版React dev tool
-  StrictMode: REACT_STRICT_MODE_TYPE,
+  StrictMode: REACT_STRICT_MODE_TYPE, // √
   Suspense: REACT_SUSPENSE_TYPE, // √
   unstable_SuspenseList: REACT_SUSPENSE_LIST_TYPE,
 
