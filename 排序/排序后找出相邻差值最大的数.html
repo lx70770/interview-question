@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    const findMaxDiff = function(arr) {
+      let len = arr.length;
+      if (arr.length < 2) return 0;
+      let max = 0;
+      for (let i = len - 1, temp; i > 0; i--) {
+        for (let j = 0; j < i; j++) {
+          temp = arr[j];
+          if (temp > arr[j + 1]) {
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+        let diff = arr[i] - arr[i - 1];
+        if (diff > max) {
+          max = diff;
+        }
+      }
+      return max;
+    };
+    console.log(findMaxDiff([1, 2, 3, 4, 5, 1000, 3, 0, 21, 500]));
+  </script>
+</html>
