@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const decimalCount = (a, b, operation) => {
+      function isInteger(floatNum) {
+        return Math.floor(floatNum) === floatNum;
+      }
+
+      function toInteger(floatNum) {
+        let temp = { value: floatNum, times: 1 };
+        if (isInteger(floatNum)) {
+          temp.times = 0;
+        }
+
+        let floatNumArr = (floatNum + "").split(".");
+        let decimalLen = floatNumArr[1].length;
+        let times = Math.pow(10, decimalLen);
+        temp.value = floatNum * times;
+        temp.times = times;
+
+        return temp;
+      }
+
+      let temp1 = toInteger(a);
+      let temp2 = toInteger(b);
+      let n1 = temp1.value;
+      let n2 = temp2.value;
+      let t1 = temp1.times;
+      let t2 = temp1.times;
+      let max = t1 > t2 ? t1 : t2;
+      let result = null;
+      console.log(n1, n2, t1, t2);
+      switch (operation) {
+        case "add":
+          if (t1 === t2) {
+            result = n1 + n2;
+          } else if (t1 > t2) {
+            result = n2 * (t1 / t2) + n1;
+          } else {
+            result = n1 * (t2 / t1) + n2;
+          }
+          return result / max;
+      }
+    };
+
+    console.log(decimalCount(0.1, 0.2, "add"));
+    console.log(decimalCount(1.1, 0.3, "add"));
+    console.log(decimalCount(0.7, 0.3, "add"));
+  </script>
+</html>
