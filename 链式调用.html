@@ -9,8 +9,30 @@
   <body></body>
   <script>
     // 实现一个lazy man
-    function Human(name) {
-      this.name = name;
+    class LazyMan {
+      constructor(name) {
+        this.tasks = [];
+        const task = () => {
+          console.log(`Hi,This is ${name}`);
+          this.next();
+        };
+        setTimeout(() => {
+          this.next();
+        }, 0);
+      }
+
+      next() {
+        const task = this.tasks.unshift();
+        task && task();
+      }
+
+      sleep(time) {
+        const task = () => {
+          console.log(`I'm sleeping, Wake up after ${time} ms`);
+        };
+        this.tasks.push(task);
+        return this;
+      }
     }
   </script>
 </html>
