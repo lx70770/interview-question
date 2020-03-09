@@ -15,6 +15,7 @@
         let j = str.match(/(0+|1+)/)[0];
         let o = (j[0] ^ 1).toString().repeat(j.length);
         let q = j + o;
+        console.log(str, q)
         if (str.startsWith(q)) {
           return true;
         } else {
@@ -31,5 +32,6 @@
       }
       return count;
     };
+    countBinarySubstrings('00110011')
   </script>
 </html>

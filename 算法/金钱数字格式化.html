@@ -9,29 +9,28 @@
   <body></body>
 
   <script>
+    const toThousandsString = number => {
+      const splitNumber = number.toString().split(".");
+      let integer = splitNumber[0];
+      const decimal = splitNumber[1] || "";
 
-    const toThousandsString = (number) => {
-      const splitNumber = number.toString().split('.')
-      let integer = splitNumber[0]
-      const decimal = splitNumber[1] || ''
-
-      let result = ''
+      let result = "";
       while (integer.length > 3) {
-    	console.log(integer)
-        result = ',' + integer.slice(-3) + result
-        integer = integer.slice(0, integer.length - 3)
+        result = "," + integer.slice(-3) + result;
+        console.log(result);
+        integer = integer.slice(0, integer.length - 3);
       }
       if (integer) {
-        result = integer + result
+        result = integer + result;
       }
 
-      if (decimal === '') {
-        return result
+      if (decimal === "") {
+        return result;
       }
 
-      return result + '.' + decimal
-    }
+      return result + "." + decimal;
+    };
 
-    toThousandsString(1234335678.98)
+    toThousandsString(123433567.98);
   </script>
 </html>
