@@ -92,7 +92,7 @@
 
     Child5.prototype = Object.create(Parent5.prototype); // 不会执行父类的构造函数
     Child5.prototype.constructor = Child5;
-    
+
     let s1 = new Child5();
     let s2 = new Child5();
     s1.list.push(4);
