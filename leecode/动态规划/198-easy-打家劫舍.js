@@ -17,16 +17,20 @@
 //      偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 
 const rob = arr => {
-  let num1 = 0;
-  let num2 = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (i % 2 === 0) {
-      num1 += arr[i];
-    } else {
-      num2 += arr[i];
-    }
+  const length = arr.length;
+  if (length === 0) return 0;
+  if (length === 1) return arr[0];
+  if (length === 2) return Math.max(arr[0], arr[1]);
+
+  let prepre = arr[0];
+  let pre = Math.max(arr[0], arr[1]);
+
+  for (let i = 2; i < length; i++) {
+    let curr = Math.max(pre, arr[i] + prepre);
+    prepre = pre;
+    pre = curr;
   }
-  return Math.max(num1, num2);
+  return pre;
 };
 
-console.log(rob([7,3,4,6]));
+console.log(rob([7, 3, 4, 6]));
