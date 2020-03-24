@@ -20,6 +20,25 @@
       }
     }
 
+    function deepClone1(target) {
+      if (typeof target !== "object") {
+        throw new TypeError("target must be an object");
+      }
+
+      let obj = {};
+      const proptype = Reflect.getPrototypeOf(target);
+      Reflect.setPrototypeOf(obj, proptype);
+
+      Reflect.ownKeys(target).forEach(item => {
+        if (typeof target[item] === "object") {
+          obj[item] = deepClone1(target[item]);
+        } else {
+          obj[item] = target[item];
+        }
+      });
+      return obj;
+    }
+
     let obj = {
       a: "1",
       b: "2",
@@ -33,6 +52,6 @@
       }
     };
 
-    console.log(deepClone(obj));
+    console.log(deepClone1(obj));
   </script>
 </html>
