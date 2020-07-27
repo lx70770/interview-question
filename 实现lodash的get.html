@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const get = (obj, path = "", defaultValue = undefined) => {
+      const paths = path.replace(/\[/g, ".").replace(/\]/g, "").split(".");
+      let result = obj;
+      for (let i = 0; i < paths.length; i++) {
+        result = result ? result[paths[i]] : undefined;
+        if (result == undefined) {
+          return defaultValue;
+        }
+      }
+      return result;
+    };
+  </script>
+</html>

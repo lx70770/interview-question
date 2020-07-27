@@ -1,32 +1,32 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>冒泡排序</title>
-</head>
-<body>
-    
-</body>
-<script>
+  </head>
+  <body></body>
+  <script>
     const bubbleSort = function (arr) {
-        if (Array.isArray(arr) && arr.length > 0) {
-            let len = arr.length
-            console.log(arr)
-            for (let i = 0; i < len; i++) {
-                for (let j = 0; j < len - i - 1; j++) {
-                    if (arr[j] > arr[j+1]) {
-                        let temp = arr[j + 1]
-                        arr[j + 1] = arr[j]
-                        arr[j] = temp
-                    }
-                }
+      if (Array.isArray(arr) && arr.length > 0) {
+        let len = arr.length;
+        console.log(arr);
+        for (let i = 0; i < len; i++) {
+          for (let j = 0; j < len - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j + 1];
+              arr[j + 1] = arr[j];
+              arr[j] = temp;
             }
-            return arr
+          }
         }
-    }
+        return arr;
+      }
+    };
 
-    console.log(bubbleSort([12,1,2,3,444,0,12,12,34,56,78,123,1,356])) // [0, 1, 1, 2, 3, 12, 12, 12, 34, 56, 78, 123, 356, 444]
-</script>
+    console.log(
+      bubbleSort([12, 1, 2, 3, 444, 0, 12, 12, 34, 56, 78, 123, 1, 356])
+    ); // [0, 1, 1, 2, 3, 12, 12, 12, 34, 56, 78, 123, 356, 444]
+  </script>
 </html>
