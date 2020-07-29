@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const fetchData = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let rad = Math.random();
+          if (rad > 0.99) resolve(rad);
+          reject();
+        }, 3000);
+      });
+    };
+
+    const retry = (fn, interval, times) => {
+      return new Promise((resolve, reject) => {
+        const attemp = () => {
+          fn()
+            .then((res) => {
+              console.log("请求成功", res);
+
+              resolve(res);
+            })
+            .catch((err) => {
+              if (times <= 0) {
+                console.log(`超时了，重试了${times}次`);
+                reject();
+              } else {
+                console.log("再试一次");
+                times--;
+                setTimeout(attemp, interval);
+              }
+            });
+        };
+        attemp();
+      });
+    };
+  </script>
+</html>
