@@ -10,12 +10,12 @@
   <script>
     function thrrottle(fn, time) {
       let timer = null;
-      return function() {
+      return function () {
+        let args = arguments;
         let context = this;
-        let arg = arguments;
         if (!timer) {
           timer = setTimeout(() => {
-            fn.apply(context, arg);
+            fn.apply(context, args);
             clearTimeout(timer);
           }, time);
         }

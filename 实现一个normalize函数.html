@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 'abc' --> {value: 'abc'}
+    // '[abc[bcd[def]]]' --> {value: 'abc', children: {value: 'bcd', children: {value: 'def'}}}
+    function normalize(str) {
+      let arr = str.match(/\w+/g);
+      let temp = {};
+      let obj;
+      while (arr.length) {
+        let item = arr.pop();
+        temp.value = item;
+        obj && (temp.children = obj);
+        if (arr.length) {
+          obj = { ...temp };
+          temp = {};
+        } else {
+          obj = temp;
+        }
+      }
+      return obj;
+    }
+  </script>
+</html>

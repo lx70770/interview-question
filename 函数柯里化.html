@@ -9,18 +9,22 @@
   <body></body>
   <script>
     // es5实现
-    function curry() {
-      let args = Array.prototype.slice.call(arguments);
-      let fn = function() {
-        let newArgs = args.concat(Array.prototype.slice.call(arguments));
-        return curry.apply(this, newArgs);
+    function curry(fn, args) {
+      let length = fn.length;
+      args = args || [];
+
+      return function () {
+        let _args = args.slice(0);
+        for (let i = 0; i < arguments.length; i++) {
+          _args.push(arguments[i]);
+        }
+
+        if (_args.length < length) {
+          return curry.call(this, fn, _args);
+        } else {
+          return fn.apply(this, _args);
+        }
       };
-      fn.toString = function() {
-        return args.reduce(function(a, b) {
-          return a * b;
-        });
-      };
-      return fn;
     }
 
     function multiFn(a, b, c) {
